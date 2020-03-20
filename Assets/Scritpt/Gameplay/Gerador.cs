@@ -8,6 +8,8 @@ public class Gerador : MonoBehaviour
     [SerializeField]
     private GameObject prefabInimigo;
     [SerializeField]
+    private ScoreSystem scoreSystem;
+    [SerializeField]
     private float tempo;
     [SerializeField]
     private float raio;
@@ -24,6 +26,7 @@ public class Gerador : MonoBehaviour
         var inimigo = GameObject.Instantiate(this.prefabInimigo);
         this.DefinirPosicaoInimigo(inimigo);
         inimigo.GetComponent<Follow>().Init(player.transform, enemySpeed);
+        inimigo.GetComponent<Score>().ScoreSystem = scoreSystem;
         
     }
 
