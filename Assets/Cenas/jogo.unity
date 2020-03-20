@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 610583222}
   - component: {fileID: 610583221}
+  - component: {fileID: 610583223}
   m_Layer: 0
   m_Name: ScoreSystem
   m_TagString: Untagged
@@ -327,6 +328,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610583223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610583220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c352eb010e8e3b046a090073f518b600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679329952
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344085549
 RectTransform:
   m_ObjectHideFlags: 0
