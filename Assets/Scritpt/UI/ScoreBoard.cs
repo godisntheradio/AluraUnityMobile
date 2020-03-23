@@ -16,9 +16,9 @@ public class ScoreBoard : MonoBehaviour
         int currentScore = -1;
         if (scoreSystem != null)
         {
-            ranking.AddEntry(currentScore);
             currentScore = scoreSystem.Score;
         }
+        ranking.AddEntry("name", currentScore);
         text.UpdateText(currentScore);
     }
 }

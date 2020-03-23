@@ -10,9 +10,13 @@ public class DynamicText : MonoBehaviour
     {
         text = GetComponent<Text>();
     }
-    public void UpdateText(int numero)
+    public void UpdateText(int value)
     {
-        text.text = numero.ToString();
+        text.text = value.ToString();
+    }
+    public void UpdateText(string value)
+    {
+        text.text = value;
     }
 
 }

@@ -14,14 +14,22 @@ public class RankingWindow : MonoBehaviour
     void Start()
     {
         ranking = FindObjectOfType<Ranking>();
-        for(int i = 0; i < ranking.RankingCount; i++)
+    }
+    public void BuildList()
+    {
+        if (ranking == null)
+            ranking = FindObjectOfType<Ranking>();
+
+        foreach (Transform child in list.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        for (int i = 0; i < ranking.List.Count; i++)
         {
             if (i > 4)
                 break;
             RankingEntry entry = Instantiate(entryPrefab, list.transform).GetComponent<RankingEntry>();
-            //entry.Initialize();
-
-
+            entry.Initialize(ranking.List[i].Name, (i + 1).ToString(), ranking.List[i].Score);
         }
     }
 }
