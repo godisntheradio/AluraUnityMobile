@@ -29,7 +29,7 @@ public class RankingWindow : MonoBehaviour
             if (i > 4)
                 break;
             RankingEntry entry = Instantiate(entryPrefab, list.transform).GetComponent<RankingEntry>();
-            entry.Initialize(ranking.List[i].Name, (i + 1).ToString(), ranking.List[i].Score);
+            entry.Initialize(ranking.List[i].Name, (i + 1).ToString(), ranking.List[i].Score.ToString());
         }
     }
 }

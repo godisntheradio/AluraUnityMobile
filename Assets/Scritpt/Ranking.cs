@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections.ObjectModel;
 using UnityEngine.Events;
+using System;
 
 public class Ranking : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Ranking : MonoBehaviour
     [SerializeField]
     private List<RankingEntryData> scoreList;
     [SerializeField]
-    private int currentID;
+    private string currentID;
 
     private RankingWindow Window;
 
@@ -30,8 +31,8 @@ public class Ranking : MonoBehaviour
     }
     public void AddEntry(string name, int newScore)
     {
-        currentID++;
-        scoreList.Add(new RankingEntryData(name, newScore.ToString(), currentID));
+        currentID = Guid.NewGuid().ToString();
+        scoreList.Add(new RankingEntryData(name, newScore, currentID));
         scoreList.Sort();
         Window.BuildList();
         SaveRanking();
@@ -58,7 +59,7 @@ public class Ranking : MonoBehaviour
         else
         {
             scoreList = new List<RankingEntryData>();
-            currentID = 0;
+            currentID = "";
         }
     }
     private void SaveRanking()
@@ -71,11 +72,11 @@ public class Ranking : MonoBehaviour
 [System.Serializable]
 public class RankingEntryData : System.IComparable
 {
-    public int ID;
+    public string ID;
     public string Name;
-    public string Score;
+    public int Score;
 
-    public RankingEntryData(string name, string score, int id)
+    public RankingEntryData(string name, int score, string id)
     {
         ID = id;
         Name = name;
