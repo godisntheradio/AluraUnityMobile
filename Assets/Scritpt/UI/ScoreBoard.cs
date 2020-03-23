@@ -15,8 +15,10 @@ public class ScoreBoard : MonoBehaviour
         scoreSystem = FindObjectOfType<ScoreSystem>();
         int currentScore = -1;
         if (scoreSystem != null)
+        {
+            ranking.AddEntry(currentScore);
             currentScore = scoreSystem.Score;
+        }
         text.UpdateText(currentScore);
-        ranking.AddEntry(currentScore);
     }
 }

@@ -5,12 +5,19 @@ using System.IO;
 public class Ranking : MonoBehaviour
 {
     public static string FILE_NAME = "ranking.json";
+
+    private string RankingFilePath { get => Path.Combine(Application.persistentDataPath, FILE_NAME); }
+    public int RankingCount { get => scoreList.Count; }
+
     [SerializeField]
     private List<int> scoreList;
+    private void Awake()
+    {
+        LoadRanking();
+    }
     private void Start()
     {
-        scoreList = new List<int>();
-        LoadRanking();
+        
     }
     public void AddEntry(int newScore)
     {
@@ -19,13 +26,13 @@ public class Ranking : MonoBehaviour
     }
     private void LoadRanking()
     {
-
+        string json = File.ReadAllText(RankingFilePath);
+        JsonUtility.FromJsonOverwrite(json, this);
     }
     private void SaveRanking()
     {
         string json = JsonUtility.ToJson(this);
-        string path = Path.Combine(Application.persistentDataPath, FILE_NAME);
-        File.WriteAllText(path, json);
+        File.WriteAllText(RankingFilePath, json);
         Debug.Log(Application.persistentDataPath);
     }
 }
