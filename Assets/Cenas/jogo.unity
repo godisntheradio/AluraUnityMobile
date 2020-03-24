@@ -269,12 +269,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1967389559}
-  prefabInimigo: {fileID: 1134229065056836, guid: 83f2d8f359aa4004f9a935c6a860ce11,
-    type: 3}
   scoreSystem: {fileID: 610583221}
   tempo: 1
   raio: 3
   enemySpeed: 10
+  Pool: {fileID: 984360303}
 --- !u!1 &610583220
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,12 +898,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1967389559}
-  prefabInimigo: {fileID: 1134229065056836, guid: 83f2d8f359aa4004f9a935c6a860ce11,
-    type: 3}
   scoreSystem: {fileID: 610583221}
   tempo: 1
   raio: 3
   enemySpeed: 10
+  Pool: {fileID: 984360303}
 --- !u!4 &1028723155
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,12 +1549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1967389559}
-  prefabInimigo: {fileID: 1134229065056836, guid: 83f2d8f359aa4004f9a935c6a860ce11,
-    type: 3}
   scoreSystem: {fileID: 610583221}
   tempo: 1
   raio: 3
   enemySpeed: 10
+  Pool: {fileID: 984360303}
 --- !u!4 &1882994928
 Transform:
   m_ObjectHideFlags: 0

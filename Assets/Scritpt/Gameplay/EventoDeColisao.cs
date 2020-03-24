@@ -11,6 +11,5 @@ public class EventoDeColisao : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         aoBater.Invoke();
-        Destroy(gameObject);
     }
 }

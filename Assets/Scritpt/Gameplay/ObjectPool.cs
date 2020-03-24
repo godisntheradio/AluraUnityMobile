@@ -21,6 +21,10 @@ public class ObjectPool : MonoBehaviour
         {
             GameObject gameObj = Instantiate(PoolObject, transform);
             Pool.Push(gameObj);
+            Poolable poolable = gameObj.GetComponent<Poolable>();
+            if (poolable == null)
+                Debug.LogError("This object does not contain the 'Poolable' component.");
+            gameObj.GetComponent<Poolable>().Pool = this;
             gameObj.SetActive(false);
             
         }
@@ -31,5 +35,10 @@ public class ObjectPool : MonoBehaviour
             return Pool.Pop();
         else
             return null;
+    }
+    public void ReturnObject(GameObject gameObj)
+    {
+        gameObj.SetActive(false);
+        Pool.Push(gameObj);
     }
 }

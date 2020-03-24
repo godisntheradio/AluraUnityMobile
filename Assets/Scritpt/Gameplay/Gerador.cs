@@ -15,6 +15,8 @@ public class Gerador : MonoBehaviour
     private float enemySpeed = 1;
     [SerializeField]
     private ObjectPool Pool;
+    [SerializeField]
+    private Rect area;
 
     private void Start()
     {
@@ -35,8 +37,12 @@ public class Gerador : MonoBehaviour
 
     private void DefinirPosicaoInimigo(GameObject inimigo)
     {
-        var posicaoAleatoria = new Vector3(Random.Range(-this.raio, this.raio), Random.Range(-this.raio, this.raio), 0);
-        var posicaoInimigo = this.transform.position + posicaoAleatoria;
-        inimigo.transform.position = posicaoInimigo;
+        var posicaoAleatoria = new Vector3(Random.Range(transform.position.x, transform.position.x + area.width), Random.Range(transform.position.y, transform.position.y + area.height), 0);
+        inimigo.transform.position = posicaoAleatoria;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(0, 150, 100);
+        Gizmos.DrawWireCube(transform.position + (Vector3)area.size / 2, (Vector3)area.size);
     }
 }
