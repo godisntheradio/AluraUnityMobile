@@ -9,6 +9,7 @@ using System;
 public class Ranking : MonoBehaviour
 {
     public static string FILE_NAME = "ranking.json";
+    public static string CurrentName = "CurrentName";
     private string RankingFilePath { get => Path.Combine(Application.persistentDataPath, FILE_NAME); }
 
     [SerializeField]
@@ -46,6 +47,7 @@ public class Ranking : MonoBehaviour
                 item.Name = newName;
             }
         }
+        PlayerPrefs.SetString(CurrentName, newName);
         SaveRanking();
         Window.BuildList();
     }

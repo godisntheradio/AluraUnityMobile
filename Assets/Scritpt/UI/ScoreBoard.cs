@@ -5,7 +5,9 @@ using UnityEngine;
 public class ScoreBoard : MonoBehaviour
 {
     [SerializeField]
-    private DynamicText text;
+    private DynamicText scoreText;
+    [SerializeField]
+    private DynamicText nameText;
     [SerializeField]
     private Ranking ranking;
 
@@ -18,7 +20,16 @@ public class ScoreBoard : MonoBehaviour
         {
             currentScore = scoreSystem.Score;
         }
-        ranking.AddEntry("name", currentScore);
-        text.UpdateText(currentScore);
+        ranking.AddEntry(GetCurrentName(), currentScore);
+        scoreText.UpdateText(currentScore);
+        nameText.UpdateText(GetCurrentName());
+    }
+    private string GetCurrentName()
+    {
+        if (PlayerPrefs.HasKey(Ranking.CurrentName))
+        {
+            return PlayerPrefs.GetString(Ranking.CurrentName);
+        }
+        return "Nome";
     }
 }

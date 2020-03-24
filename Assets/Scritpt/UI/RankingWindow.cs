@@ -9,6 +9,9 @@ public class RankingWindow : MonoBehaviour
     private GameObject entryPrefab;
     [SerializeField]
     private GameObject list;
+    [SerializeField]
+    private int MaxEntries = 4;
+
 
     private Ranking ranking;
     void Start()
@@ -26,7 +29,7 @@ public class RankingWindow : MonoBehaviour
         }
         for (int i = 0; i < ranking.List.Count; i++)
         {
-            if (i > 4)
+            if (i > MaxEntries)
                 break;
             RankingEntry entry = Instantiate(entryPrefab, list.transform).GetComponent<RankingEntry>();
             entry.Initialize(ranking.List[i].Name, (i + 1).ToString(), ranking.List[i].Score.ToString());
